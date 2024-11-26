@@ -7,7 +7,7 @@ int main() {
     wc.addAllWords("bob bobby st---study   b   b   b   aaaaa alice alice bobby                                  a");
     std::ostringstream out1;
     wc.dumpWordsSortedByWord(out1);
-    std::string expected1 = "a,1\naaaaa,1\nalice,2\nb,3\nbob,1\nbobby,2\nststudy,1\n";
+    std::string expected1 = "ststudy,1\nbobby,2\nbob,1\nb,3\nalice,2\naaaaa,1\na,1\n";
     assertEquals(expected1, out1.str(), "", __LINE__);
 
     wc = WordCount();
@@ -35,14 +35,14 @@ int main() {
     wc.addAllWords("    22 333 Hello hello HEL33LO wor333ld    ");
     std::ostringstream out5;
     wc.dumpWordsSortedByWord(out5);
-    std::string expected5 = "hello,3\nworld,1\n";
+    std::string expected5 = "world,1\nhello,3\n";
     assertEquals(expected5, out5.str(), "", __LINE__);
 
     wc = WordCount();
     wc.addAllWords("hello, world! hello.");
     std::ostringstream out6;
     wc.dumpWordsSortedByWord(out6);
-    std::string expected6 = "hello,2\nworld,1\n";
+    std::string expected6 = "world,1\nhello,2\n";
     assertEquals(expected6, out6.str(), "", __LINE__);
 
     wc = WordCount();
@@ -56,7 +56,8 @@ int main() {
     wc.addAllWords("  hello   world\nhello\n\nworld");
     std::ostringstream out8;
     wc.dumpWordsSortedByWord(out8);
-    std::string expected8 = "hello,2\nworld,2\n";
+    std::string expected8 = "world,2\nhello,2\n";
     assertEquals(expected8, out8.str(), "", __LINE__);
-    return 0; 
+
+    return 0;
 }
